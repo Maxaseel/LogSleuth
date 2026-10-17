@@ -9,7 +9,7 @@ import android.os.Build
 import android.os.LocaleList
 
 /**
- * In-app language override (English / 简体中文 / follow system).
+ * In-app language override (English / 简体中文 / العربية / follow system).
  *
  * The override is stored in a plain SharedPreferences file because it must be
  * read *synchronously* inside `attachBaseContext` — DataStore's async read
@@ -30,8 +30,10 @@ object AppLocales {
     const val SYSTEM = "system"
     const val EN = "en"
     const val ZH_CN = "zh-CN" // BCP 47 tag matching values-zh-rCN
+    const val AR = "ar"       // تم إضافة اللغة العربية هنا
 
-    val options = listOf(SYSTEM, EN, ZH_CN)
+    // تم إضافة "AR" إلى قائمة اللغات المتاحة
+    val options = listOf(SYSTEM, EN, ZH_CN, AR)
 
     private const val PREFS = "app_locale"
     private const val KEY_TAG = "tag"
