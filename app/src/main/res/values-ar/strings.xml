@@ -1,1 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LogSleuth</string>
 
+    <!-- الإعداد -->
+    <string name="setup_title">إعداد الوصول إلى السجلات</string>
+    <string name="setup_explainer">منذ Android 4.1، لا يمكن للتطبيقات قراءة سجلات التطبيقات الأخرى دون منح إذن. لا يحتاج Shizuku وأمر ADB إلى صلاحية root. كما تعمل صلاحية root إذا كان الجهاز يمتلكها بالفعل.</string>
+    <string name="setup_shizuku_title">Shizuku (موصى به)</string>
+    <string name="setup_shizuku_desc">بدون root وبدون حاسوب على Android 11+ عبر التصحيح اللاسلكي. يتيح التصفية حسب التطبيق وأكثر بث موثوقية.</string>
+    <string name="setup_shizuku_not_installed">Shizuku غير مثبّت</string>
+    <string name="setup_shizuku_not_running">Shizuku مثبّت لكنه لا يعمل</string>
+    <string name="setup_shizuku_needs_permission">Shizuku يعمل — الإذن مطلوب</string>
+    <string name="setup_shizuku_ready">Shizuku جاهز</string>
+    <string name="setup_get_shizuku">الحصول على Shizuku</string>
+    <string name="setup_open_shizuku">فتح Shizuku</string>
+    <string name="setup_grant_shizuku">منح الإذن</string>
+    <string name="setup_root_title">Root</string>
+    <string name="setup_root_desc">مع Magisk أو KernelSU أو APatch، يقرأ root السجل الكامل بنفس طريقة Shizuku. لا شيء يعمل حتى تطلبه.</string>
+    <string name="setup_root_grant">استخدام root</string>
+    <string name="setup_root_ready">Root جاهز</string>
+    <string name="setup_root_denied">تم رفض root</string>
+    <string name="setup_root_unknown">لم يُطلب</string>
+    <string name="setup_root_checking">في انتظار مدير root…</string>
+    <string name="setup_adb_title">منح ADB لمرة واحدة</string>
+    <string name="setup_adb_desc">باستخدام حاسوب، شغّل هذا الأمر مرة واحدة. يبقى المنح حتى تقوم بإلغاء التثبيت. على Android 13 وما بعده، يعرض Android مطالبة الوصول إلى السجلات فقط بينما يكون LogSleuth على الشاشة، ويُرفض البدء في الخلفية لمدة دقيقة تقريبًا. يستمر Shizuku أو root في القراءة في الخلفية.</string>
+    <string name="setup_copy_command">نسخ الأمر</string>
+    <string name="setup_recheck">شغّلته — إعادة التحقق</string>
+    <string name="setup_adb_granted">تم منح READ_LOGS</string>
+    <string name="setup_skip">تخطٍ الآن</string>
+
+    <!-- البث -->
+    <string name="pause">إيقاف مؤقت</string>
+    <string name="resume">استئناف</string>
+    <string name="clear">مسح</string>
+    <string name="search_hint">بحث في السجلات…</string>
+    <string name="record_start">بدء التسجيل</string>
+    <string name="record_stop">إيقاف التسجيل</string>
+    <string name="scroll_bottom">التمرير إلى الأسفل</string>
+    <string name="scroll_top">التمرير إلى الأعلى</string>
+    <string name="empty_logs">لا توجد سطور سجل بعد. ستظهر الإدخالات الجديدة هنا في الوقت الفعلي.</string>
+    <string name="empty_logs_waiting">في انتظار السجلات.</string>
+    <string name="empty_logs_filtered">المرشحات النشطة تخفي كل السطور. خفّف التصفية لرؤية البث.</string>
+    <string name="no_access_title">لا يوجد وصول إلى السجلات بعد</string>
+    <string name="no_access_desc">يحتاج LogSleuth إلى Shizuku أو root أو منح ADB لمرة واحدة لقراءة سجلات الجهاز.</string>
+    <string name="no_access_action">فتح الإعداد</string>
+
+    <!-- المرشحات -->
+    <string name="filters_title">إعدادات التصفية المسبقة</string>
+    <string name="filters_empty">لا توجد إعدادات مسبقة محفوظة بعد. احفظ واحدة من شاشة البث أو أنشئها هنا.</string>
+    <string name="filter_add">إعداد مسبق جديد</string>
+    <string name="filter_edit">تعديل الإعداد المسبق</string>
+    <string name="filter_query">تضمين (الوسم أو الرسالة)</string>
+    <string name="filter_tag">الوسم</string>
+    <string name="filter_tag_exact">مطابقة الوسم بالضبط</string>
+    <string name="filter_expand">المزيد من حقول التصفية</string>
+    <string name="filter_levels_all">كل المستويات</string>
+    <string name="filter_level_on">محدد</string>
+    <string name="filter_exclude">استبعاد</string>
+    <string name="filter_regex">التعبيرات النمطية</string>
+    <string name="filter_save_preset">حفظ كإعداد مسبق</string>
+    <string name="filter_preset_name">اسم الإعداد المسبق</string>
+    <string name="app_filter_all">كل التطبيقات</string>
+    <string name="app_filter_title">تصفية حسب التطبيق</string>
+    <string name="level_verbose">مطوّل</string>
+    <string name="level_debug">تصحيح</string>
+    <string name="level_info">معلومات</string>
+    <string name="level_warn">تحذير</string>
+    <string name="level_error">خطأ</string>
+    <string name="level_fatal">حرج</string>
+    <string name="level_assert">تأكيد</string>
+
+    <!-- الجلسات -->
+    <string name="sessions_title">الجلسات</string>
+    <string name="sessions_empty">لا توجد تسجيلات بعد. اضغط زر التسجيل في شاشة البث، أو استخدم بلاطة الإعدادات السريعة.</string>
+    <string name="session_file_missing">ملف السجل لهذه الجلسة مفقود.</string>
+    <string name="tab_logs">السجلات (%1$d)</string>
+    <string name="tab_crashes">الأعطال (%1$d)</string>
+    <string name="tab_bookmarks">المرجعيات (%1$d)</string>
+    <string name="share_logs">مشاركة السجلات</string>
+    <string name="export_format_prompt">اختر تنسيق التصدير. يتضمن ZIP معلومات الجهاز.</string>
+    <string name="bookmarks_empty">لا توجد مرجعيات في هذه الجلسة.</string>
+
+    <!-- الأعطال -->
+    <string name="crashes_title">الأعطال و ANRs</string>
+    <string name="crashes_empty">لم يتم اكتشاف أعطال. يُعلّم LogSleuth أحداث FATAL EXCEPTION والانهيار الأصلي و ANR أثناء البث أو التسجيل.</string>
+    <string name="unknown_app">تطبيق غير معروف</string>
+    <string name="copy">نسخ</string>
+    <string name="close">إغلاق</string>
+
+    <!-- الإعدادات -->
+    <string name="settings_title">الإعدادات</string>
+    <string name="settings_access">الوصول إلى السجلات</string>
+    <string name="settings_access_shizuku">متصل عبر Shizuku</string>
+    <string name="settings_access_adb">تم المنح عبر ADB (READ_LOGS)</string>
+    <string name="settings_access_root">متصل عبر root</string>
+    <string name="settings_access_mode">الوصول المفضل</string>
+    <string name="settings_access_mode_desc">يحاول الوضع التلقائي Shizuku، ثم root، ثم منح ADB. أي مسار غير ممنوح ينتقل إلى المسار التالي.</string>
+    <string name="settings_root">استخدام root</string>
+    <string name="settings_root_desc">يطلب من مدير root لديك. اترك هذا مغلقًا فلن يرى هاتف غير مُجذّر أي مربع حوار.</string>
+    <string name="access_mode_auto">تلقائي</string>
+    <string name="access_mode_shizuku">Shizuku</string>
+    <string name="access_mode_root">Root</string>
+    <string name="access_mode_adb">ADB</string>
+    <string name="settings_access_open">فتح دليل الإعداد</string>
+    <string name="settings_buffer_size">حجم المخزن المؤقت</string>
+    <string name="settings_buffer_size_value">يُحتفظ بما يصل إلى %1$d إدخال في الذاكرة</string>
+    <string name="settings_recording_limits">حدود التسجيل</string>
+    <string name="settings_recording_max">حد حجم التسجيل</string>
+    <string name="settings_recording_max_value">يتوقف التسجيل تلقائيًا عند %1$d ميجابايت</string>
+    <string name="settings_recording_hours">حد مدة التسجيل</string>
+    <string name="settings_recording_hours_value">يتوقف التسجيل تلقائيًا بعد %1$d ساعة</string>
+    <string name="settings_recording_hours_unlimited">لا يوجد حد زمني</string>
+    <string name="settings_crash_notifications">إشعارات الأعطال</string>
+    <string name="settings_crash_save">حفظ</string>
+    <string name="settings_crash_notify">إشعار</string>
+    <string name="settings_crash_java">Java</string>
+    <string name="settings_crash_native">أصلي</string>
+    <string name="settings_crash_anr">ANR</string>
+    <string name="settings_bubble">عناصر التحكم العائمة</string>
+    <string name="settings_bubble_desc">إظهار أدوات التسجيل والمرجعية والإخفاء فوق التطبيقات الأخرى. يحتاج إلى إذن التراكب.</string>
+    <string name="bubble_controls">عناصر التحكم العائمة</string>
+    <string name="bubble_hide">إخفاء عناصر التحكم العائمة</string>
+    <string name="settings_theme">المظهر</string>
+    <string name="theme_system">النظام</string>
+    <string name="theme_light">فاتح</string>
+    <string name="theme_dark">داكن</string>
+    <string name="settings_language">اللغة</string>
+    <string name="language_system">النظام</string>
+    <string name="settings_log_text_size">حجم نص السجل</string>
+    <string name="text_size_compact">مضغوط</string>
+    <string name="text_size_default">افتراضي</string>
+    <string name="text_size_comfortable">مريح</string>
+    <string name="undo">تراجع</string>
+    <string name="session_deleted">تم حذف الجلسة</string>
+    <string name="session_recording_live">جارٍ التسجيل</string>
+    <string name="lines_count">%1$d سطر</string>
+    <string name="unit_kb">%1$d كيلوبايت</string>
+    <string name="duration_sec">%1$d ث</string>
+    <string name="duration_min_sec">%1$d د %2$d ث</string>
+    <string name="crash_deleted">تم حذف حدث العطل</string>
+    <string name="settings_about">حول</string>
+    <string name="settings_version">LogSleuth %1$s · مفتوح المصدر (Apache-2.0)</string>
+
+    <!-- الإشعارات والخدمات -->
+    <string name="notif_channel_recording">التسجيل</string>
+    <string name="notif_channel_crashes">الأعطال و ANRs</string>
+    <string name="notif_recording_title">تسجيل السجلات</string>
+    <string name="notif_recording_text">تم التقاط %1$d سطر</string>
+    <string name="notif_recording_limit_title">تم إيقاف التسجيل</string>
+    <string name="notif_recording_limit_text">تم بلوغ حد الحجم (%1$d ميجابايت)</string>
+    <string name="notif_recording_timeout_text">تم بلوغ الحد الزمني (%1$d ساعة)</string>
+    <string name="notif_action_stop">إيقاف</string>
+    <string name="notif_action_bookmark">مرجعية</string>
+    <string name="notif_crash_title">عطل: %1$s</string>
+    <string name="notif_native_title">عطل أصلي: %1$s</string>
+    <string name="notif_anr_title">ANR: %1$s</string>
+    <string name="tile_record">تسجيل السجلات</string>
+    <string name="tile_recording">جارٍ التسجيل · %1$d</string>
+    <string name="bookmark">مرجعية</string>
+    <string name="bookmark_added">تمت إضافة المرجعية</string>
+    <string name="not_recording">لا يتم التسجيل — اضغط زر التسجيل أولًا</string>
+    <string name="recording_start_failed">تعذّر بدء التسجيل — تحقق من الوصول إلى السجلات</string>
+
+    <!-- عام -->
+    <string name="save">حفظ</string>
+    <string name="cancel">إلغاء</string>
+    <string name="delete">حذف</string>
+
+    <!-- التنقل السفلي -->
+    <string name="nav_stream">السجلات</string>
+    <string name="nav_sessions">الجلسات</string>
+    <string name="nav_crashes">الأعطال</string>
+    <string name="nav_settings">الإعدادات</string>
+
+    <!-- شريط التسجيل -->
+    <string name="recording_banner">جارٍ التسجيل · %1$d سطر</string>
+    <string name="recording_banner_stop">إيقاف</string>
+
+    <!-- حالة المحرك -->
+    <string name="engine_streaming">جارٍ البث</string>
+    <string name="engine_connecting">جارٍ الاتصال…</string>
+    <string name="engine_stopped">متوقف</string>
+    <string name="engine_error">خطأ في البث</string>
+    <string name="stream_error_detail">فشل البث: %1$s</string>
+
+    <!-- تفاصيل الإدخال -->
+    <string name="entry_detail">إدخال السجل</string>
+    <string name="copy_message">نسخ الرسالة</string>
+    <string name="copy_raw">نسخ السطر الخام</string>
+    <string name="copied">تم النسخ</string>
+    <string name="selected_count">%1$d محدد</string>
+
+    <!-- الاستيراد -->
+    <string name="import_logs">استيراد</string>
+    <string name="import_success">تم الاستيراد كجلسة جديدة</string>
+    <string name="import_failed">تعذّر استيراد هذا الملف</string>
+
+    <!-- معالج التقرير -->
+    <string name="nav_report">تقرير</string>
+    <string name="report_step1_title">أي تطبيق يتصرف بشكل غير سليم؟</string>
+    <string name="report_step1_hint">اختر التطبيق الذي تريد التقاط السجلات له.</string>
+    <string name="report_step2_title">أعد إنتاج المشكلة</string>
+    <string name="report_step2_hint">ابدأ التسجيل، وانتقل إلى التطبيق، وقم بما يسبب المشكلة. سنستمر في الالتقاط في الخلفية.</string>
+    <string name="report_step3_title">أرسل التقرير</string>
+    <string name="report_step3_hint">تم التقاط كل شيء. شاركه مع المطور — أو احتفظ به في الجلسات.</string>
+    <string name="report_search_apps">بحث في التطبيقات…</string>
+    <string name="report_start_recording">بدء التسجيل</string>
+    <string name="report_stop_share">إيقاف ومشاركة</string>
+    <string name="report_recording_active">جارٍ التسجيل · %1$d سطر</string>
+    <string name="report_crash_caught">تم اكتشاف عطل في %1$s — تم التقاطه تلقائيًا</string>
+    <string name="report_keep">الاحتفاظ في الجلسات</string>
+    <string name="report_back">رجوع</string>
+    <string name="report_next">التالي</string>
+    <string name="step_counter">الخطوة %1$d من 3</string>
+
+    <!-- مطالبة انتهاء التسجيل -->
+    <string name="recording_saved">تم حفظ التسجيل</string>
+    <string name="recording_saved_lines">تم التقاط %1$d سطر</string>
+    <string name="recording_saved_lines_context">تم التقاط %1$d سطر (%2$d في المخزن المؤقت قبل البدء)</string>
+    <string name="share_now">مشاركة الآن</string>
+    <string name="later">لاحقًا</string>
+
+    <!-- شريط الإيقاف المؤقت -->
+    <string name="paused_banner">متوقف مؤقتًا · %1$d سطر جديد في الانتظار</string>
+    <string name="paused_resume">استئناف</string>
+
+    <!-- مشاركة العطل -->
+    <string name="crash_share">مشاركة</string>
+
+    <!-- الخطوة التالية في الإعداد -->
+    <!-- منتقي نطاق المسح/الحفظ -->
+    <string name="clear_logs_title">مسح السجلات</string>
+    <string name="save_session_title">حفظ إلى جلسة</string>
+    <string name="save_to_session">حفظ إلى جلسة</string>
+    <string name="snapshot_saved">تم حفظ الجلسة</string>
+    <string name="scope_all">الكل (%1$d سطر)</string>
+    <string name="scope_per_app">حسب التطبيق</string>
+    <string name="scope_lines">%1$d سطر</string>
+    <string name="scope_errors">%1$d خطأ</string>
+    <string name="scope_warns">%1$d تحذير</string>
+    <string name="scope_empty">لا توجد سطور سجل بعد</string>
+    <string name="scope_loading">جارٍ العدّ…</string>
+    <string name="scope_unattributed">غير منسوب</string>
+
+    <!-- الجولة الإرشادية (علامات إرشادية فوق الواجهة الحقيقية) -->
+    <string name="tour_skip">تخطٍ</string>
+    <string name="tour_next">التالي</string>
+    <string name="tour_done">تم</string>
+    <string name="tour_intro_title">مرحبًا بك في LogSleuth</string>
+    <string name="tour_intro_desc">جولة عملية سريعة في البث المباشر — اضغط في أي مكان للانتقال إلى النصيحة التالية.</string>
+    <string name="tour_filter_title">شريط التصفية</string>
+    <string name="tour_filter_desc">ضيّق البث حسب المستوى، أو حسب التطبيق، أو الإعدادات المسبقة المحفوظة. اضغط التالي لفتحه.</string>
+    <string name="tour_fields_title">مرشحات التفاصيل</string>
+    <string name="tour_fields_desc">تم توسيع الشريط للتو — كلمة مفتاحية، وسم، استبعاد، تبديل regex، وحفظ التركيبة كإعداد مسبق.</string>
+    <string name="tour_engine_title">حالة المحرك</string>
+    <string name="tour_engine_desc">تعرض هذه الشريحة اتصال logcat: جارٍ البث، إعادة الاتصال، أو متوقف. يتعافى المحرك من تلقاء نفسه.</string>
+    <string name="tour_pause_title">إيقاف مؤقت</string>
+    <string name="tour_pause_desc">راقب — توقف البث للتو: تستمر السطور الجديدة في التخزين المؤقت في الخلفية بينما تتجمد الشاشة.</string>
+    <string name="tour_paused_title">أثناء الإيقاف المؤقت</string>
+    <string name="tour_paused_desc">يحسب هذا الشريط السطور المخزنة مؤقتًا التي تصل في الأسفل. اضغط استئناف (أو يحدث ذلك في الخطوة التالية) للحاق فورًا.</string>
+    <string name="tour_search_title">البحث</string>
+    <string name="tour_search_desc">فتح شريط البحث للتو: اكتب استعلامًا وانتقل بين المطابقات عبر المخزن المؤقت بأكمله.</string>
+    <string name="tour_bubble_title">الفقاعة العائمة</string>
+    <string name="tour_bubble_desc">راقب الأعطال أثناء استخدام تطبيقات أخرى — تُظهر فقاعة على مستوى النظام مؤشرًا مباشرًا.</string>
+    <string name="tour_scope_title">المسح والحفظ</string>
+    <string name="tour_scope_desc">امسح المخزن المؤقت أو خذ لقطة منه إلى جلسة — إما للكل، أو فقط للتطبيقات التي تختارها. شاهدها تُفتح تاليًا.</string>
+    <string name="tour_scope_demo_desc">فتح منتقي النطاق من تلقاء نفسه — الكل، أو حسب التطبيق مع إحصائيات سجل مباشرة على اليمين.</string>
+    <string name="tour_scope_demo_caption">الجولة الإرشادية %1$d/%2$d · عرض توضيحي مباشر — اضغط خارج مربع الحوار للمتابعة</string>
+    <string name="tour_select_title">التحديد المتعدد</string>
+    <string name="tour_select_desc">بدأ الضغط المطول للتو — تعرض الصفوف علامات اختيار ويقوم هذا الشريط بنسخ التحديد أو إلغائه. الضغط على صف يوسّع نصه الكامل.</string>
+    <string name="tour_fab_title">أدوات الانتقال</string>
+    <string name="tour_fab_desc">تمررت القائمة للأعلى للتو: زر ↓ يعيدك إلى الذيل المباشر، و ↑ يقفز إلى أقدم سطر مخزن مؤقتًا.</string>
+    <string name="tour_sessions_title">الجلسات</string>
+    <string name="tour_sessions_desc">كل تسجيل ولقطة محفوظة تصل هنا — اضغط واحدة لإعادة تشغيلها، واسحب لحذفها.</string>
+    <string name="tour_report_title">التقرير</string>
+    <string name="tour_report_desc">اختر تطبيقًا ويجمع LogSleuth إحصائيات سجله — مزيج المستويات، الوسوم المزعجة، انفجارات الأخطاء.</string>
+    <string name="tour_crashes_title">الأعطال</string>
+    <string name="tour_crashes_desc">تُجمع الأعطال و ANRs المكتشفة تلقائيًا — وسّع بطاقة للحصول على تتبع المكدس الكامل.</string>
+    <string name="tour_settings_title">الإعدادات</string>
+    <string name="tour_settings_desc">حجم المخزن المؤقت، حدود التسجيل، إشعارات الأعطال، اللغة، المظهر — وزر إعادة تشغيل هذه الجولة.</string>
+    <string name="tour_done_title">أنت جاهز تمامًا</string>
+    <string name="tour_done_desc">أعد تشغيل هذه الجولة في أي وقت من الإعدادات ← حول. طيب صيد السجلات!</string>
+    <string name="settings_replay_guide">إعادة الجولة الإرشادية</string>
+
+    <!-- بطاقة GitHub / التحديث -->
+    <string name="update_card_title">مفتوح المصدر على GitHub</string>
+    <string name="update_card_subtitle">shiaho777/LogSleuth · رخصة Apache 2.0</string>
+    <string name="update_check">التحقق من التحديثات</string>
+    <string name="update_checking">جارٍ التحقق…</string>
+    <string name="update_up_to_date">أنت على أحدث إصدار</string>
+    <string name="update_failed">فشل التحقق — %1$s</string>
+    <string name="update_available">تحديث متاح: %1$s</string>
+    <string name="update_no_apk">هذا الإصدار لا يحتوي على ملف APK — احصل عليه من GitHub</string>
+    <string name="update_download">تنزيل</string>
+    <string name="update_pause">إيقاف مؤقت</string>
+    <string name="update_resume">استئناف</string>
+    <string name="update_cancel">إلغاء</string>
+    <string name="update_install">تثبيت %1$s</string>
+    <string name="update_progress">%1$s / %2$s · %3$s</string>
+    <string name="update_status_paused">متوقف مؤقتًا</string>
+    <string name="update_status_done">تم</string>
+    <string name="update_status_failed">فشل</string>
+    <string name="update_history">سجل الإصدارات</string>
+
+    <!-- المرشحات القابلة للتكديس -->
+    <string name="filter_manage">القواعد</string>
+    <string name="filter_rule_chip">%1$s · %2$s</string>
+    <string name="filter_rule_off">إيقاف %1$s</string>
+    <string name="filter_rules_clear">إيقاف القواعد</string>
+    <string name="filter_stack_hint">شغّل قاعدة لإضافتها إلى المكدس. تحتفظ قواعد التضمين بالسطر عندما تتطابق أي منها. تُسقط قواعد الاستبعاد السطر عندما تتطابق. يظل شريط التصفية أعلاه مطبقًا فوق ذلك.</string>
+    <string name="filter_including">تضمين</string>
+    <string name="filter_excluding">استبعاد</string>
+    <string name="filter_enabled">مفعّل</string>
+    <string name="filter_pid">PID</string>
+    <string name="filter_tid">TID</string>
+    <string name="filter_uid">UID</string>
+    <string name="filter_export">تصدير</string>
+    <string name="filter_import">استيراد</string>
+    <string name="filter_import_failed">تعذّر قراءة ملف التصفية هذا</string>
+    <string name="filter_import_ok">تم استيراد %1$d قاعدة</string>
+    <string name="filter_saved_from_line">تم حفظ قاعدة تضمين لهذا السطر</string>
+    <string name="filter_from_line">حفظ كقاعدة</string>
+    <string name="selection_save">حفظ</string>
+
+    <!-- إيقاف التسجيل مؤقتًا -->
+    <string name="recording_banner_paused">التسجيل متوقف مؤقتًا · %1$d سطر</string>
+    <string name="notif_recording_paused">التسجيل متوقف مؤقتًا</string>
+    <string name="notif_action_pause">إيقاف مؤقت</string>
+    <string name="notif_action_resume">استئناف</string>
+
+    <!-- القائمة السوداء للأعطال ومراقبة الإقلاع -->
+    <string name="crash_ignore">تجاهل هذا التطبيق</string>
+    <string name="crash_ignored">سيتم تجاهل الأعطال من %1$s</string>
+    <string name="settings_crash_blacklist">التطبيقات المتجاهَلة</string>
+    <string name="settings_crash_blacklist_desc">تُسقط الأعطال و ANRs من هذه الحزم.</string>
+    <string name="settings_watch_boot">مراقبة الأعطال في الخلفية</string>
+    <string name="settings_watch_boot_desc">يحتفظ بإشعار هادئ حتى تُلتقط الأعطال بينما يكون LogSleuth في الخلفية، بما في ذلك بعد إعادة التشغيل. مع منح ADB فقط على Android 13 وما بعده، تنتظر المراقبة حتى يكون LogSleuth على الشاشة. يستمر Shizuku و root في المراقبة خارج الشاشة.</string>
+    <string name="notif_channel_watch">مراقبة الأعطال</string>
+    <string name="notif_watch_title">مراقبة الأعطال</string>
+    <string name="notif_watch_text">LogSleuth يستمع في الخلفية</string>
+
+    <!-- أعمدة السجل -->
+    <string name="settings_columns">أعمدة السجل</string>
+    <string name="settings_col_date">التاريخ</string>
+    <string name="settings_col_time">الوقت</string>
+    <string name="settings_col_uid">UID</string>
+    <string name="settings_col_pid">PID</string>
+    <string name="settings_col_tid">TID</string>
+    <string name="settings_col_tag">الوسم</string>
+    <string name="settings_col_package">التطبيق</string>
+    <string name="settings_time_format">تنسيق الوقت</string>
+    <string name="time_format_clock">ساعة</string>
+    <string name="time_format_datetime">التاريخ والوقت</string>
+    <string name="time_format_epoch">Epoch</string>
+
+    <string name="crash_copied">تم نسخ العطل</string>
+    <string name="crash_type_java">عطل Java</string>
+    <string name="crash_type_native">عطل أصلي</string>
+    <string name="crash_type_anr">ANR</string>
+    <string name="notif_channel_crash_app">%1$s · %2$s</string>
+    <string name="settings_live_only">تخطي السجلات القديمة عند التشغيل</string>
+    <string name="settings_live_only_desc">في المرة التالية التي يبدأ فيها البث من جديد، اتبع السطور الجديدة فقط. لا تزال إعادة الاتصال تستمر من حيث توقفت.</string>
+    <string name="settings_collect_java">حفظ أعطال Java</string>
+    <string name="settings_collect_native">حفظ الأعطال الأصلية</string>
+    <string name="settings_collect_anr">حفظ ANRs</string>
+    <string name="settings_notify_java">إشعار لأعطال Java</string>
+    <string name="settings_notify_native">إشعار للأعطال الأصلية</string>
+    <string name="settings_notify_anr">إشعار لـ ANRs</string>
+    <string name="settings_separate_channels">قنوات إشعار منفصلة</string>
+    <string name="settings_separate_channels_desc">يحصل كل تطبيق ونوع عطل على قناته الخاصة، حتى تتمكن من كتم أحدها في إعدادات النظام والاحتفاظ بالسجل.</string>
+    <string name="settings_logs_expanded">إظهار سطور السجل الكاملة</string>
+    <string name="settings_search_case">بحث حساس لحالة الأحرف</string>
+    <string name="stream_adb_needs_foreground">في انتظار أن يكون LogSleuth على الشاشة. على Android 13 وما بعده لا يمكن أن يبدأ logcat عبر ADB في الخلفية: يُتذكر الرفض لمدة دقيقة تقريبًا ولا تظهر المطالبة أبدًا.</string>
+    <string name="engine_adb_waiting">في الانتظار</string>
+    <string name="crash_search">بحث في الأعطال</string>
+    <string name="crash_sort">ترتيب</string>
+    <string name="crash_sort_newest">الأحدث</string>
+    <string name="crash_sort_count">العدد</string>
+    <string name="crash_sort_name">الاسم</string>
+    <string name="crash_sort_reverse">ترتيب عكسي</string>
+    <string name="crash_group_count">%1$d</string>
+    <string name="crash_deleted_all">تم حذف أعطال هذا التطبيق</string>
+    <string name="crash_open_channel">إعدادات الإشعارات</string>
+    <string name="crash_context_heading">السجلات المحيطة</string>
+    <string name="crash_version">%1$s (%2$d)</string>
+    <string name="crash_version_name">الإصدار %1$s</string>
+    <string name="session_rename">إعادة تسمية</string>
+    <string name="session_rename_hint">اسم الجلسة</string>
+    <string name="crash_details_title">عطل</string>
+    <string name="crash_wrap">التفاف السطور</string>
+    <string name="crash_open_app">معلومات التطبيق</string>
+    <string name="crash_app_icon">أيقونة التطبيق</string>
+    <string name="select_all">تحديد الكل</string>
+    <string name="extended_copy">نسخ موسّع</string>
+    <string name="save_to">حفظ إلى ملف</string>
+    <string name="settings_date_pattern">نمط التاريخ</string>
+    <string name="settings_time_pattern">نمط الوقت</string>
+    <string name="settings_open_crashes_startup">فتح الأعطال عند بدء التشغيل</string>
+    <string name="settings_include_device_zip">تضمين معلومات الجهاز في صادرات ZIP</string>
+    <string name="settings_include_app_zip">تضمين معلومات التطبيق في ملفات ZIP للأعطال</string>
+    <string name="search_case_sensitive">مطابقة حالة الأحرف</string>
+    <string name="search_prev">المطابقة السابقة</string>
+    <string name="search_next">المطابقة التالية</string>
+    <string name="navigate_back">رجوع</string>
+
+</resources>
