@@ -19,7 +19,7 @@ import io.github.shiaho777.logsleuth.app.data.prefs.AppLocales
 
 /**
  * Card content for choosing the app language: follow system, English,
- * or 简体中文. Language names are shown in their own language (standard
+ * 简体中文, or العربية. Language names are shown in their own language (standard
  * i18n practice); only the "system" option is translated.
  */
 @Composable
@@ -38,6 +38,7 @@ fun LanguagePicker(
                 AppLocales.SYSTEM to stringResource(R.string.language_system),
                 AppLocales.EN to "English",
                 AppLocales.ZH_CN to "简体中文",
+                AppLocales.AR to "العربية", // تمت إضافة اللغة العربية هنا
             )
             labels.forEachIndexed { index, (tag, label) ->
                 SegmentedButton(
